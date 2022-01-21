@@ -10,9 +10,21 @@ export const name = (req: Request, res: Response) => {
 
 export const getAllPhrases = async (req: Request, res: Response) => {
     let phrase = await Phrase.findAll();
-    res.json({
-        phrase
+    res.json({ phrase });
+}
+
+export const getAuthorPhrases = async (req: Request, res: Response) => {
+    let author: string = req.params.author
+    let phrase = await Phrase.findAll({
+        where: { author }
     });
+    
+    if (phrase.length > 0) {
+        res.json({ phrase });
+    } else {
+        res.json({ error: 'Frase não encontrada' });
+    }
+    
 }
 
 export const sendPhrase = async (req: Request, res: Response) => {
@@ -22,3 +34,4 @@ export const sendPhrase = async (req: Request, res: Response) => {
     let newPhrase = await Phrase.create({ author, txt });
     res.json({id: newPhrase.id, author, txt});
 }
+

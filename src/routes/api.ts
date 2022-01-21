@@ -7,7 +7,7 @@ const router = Router();
 router.get('/name/:name', apiController.name)
 
 router.get('/frases', apiController.getAllPhrases)
-
+router.get('/frases/:author', apiController.getAuthorPhrases)
 router.post('/frases', apiController.sendPhrase)
 
 
