@@ -1,4 +1,3 @@
-import { timeStamp } from 'console';
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../instances/pg'; 
 
