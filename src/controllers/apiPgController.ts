@@ -47,7 +47,7 @@ export const deletePhrase = async (req: Request, res: Response) => {
     let phrase = await Phrase.findByPk(id);
     if (phrase) {
         await phrase.destroy();
-        res.status(200).send("Frase deletada com sucesso!");
+        res.status(200).send("Frase deletada com sucesso!!");
     } else {
         res.json({ error: 'Frase não encontrada' });
     }
